@@ -22,6 +22,12 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Photo photo;
 
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @ManyToMany
     @JoinTable(
             name = "tb_user_organizacao",
@@ -70,6 +76,22 @@ public class User {
 
     public void setPhoto(Photo photo) {
         this.photo = photo;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Collection<Organizacao> getOrganizacoes() {
